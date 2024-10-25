@@ -1,0 +1,57 @@
+
+# Git workflow naming conventions
+
+### Accepted types
+
+- **feat**: for new features for users
+- **chore**: for general maintenance tasks or updates to tools and configurations
+- **test**: for adding new tests or improve existing tests
+- **bugfix**: for bugfixes for the user
+- **hotfix**: for changing code with a temporary solution and/or without following the usual process
+- **docs**: changes to documentation
+- **style**: for formatting, missing semi colons, etc
+- **refactor**: refactoring production code, eg. change name of variable, decoupling etc
+
+## Branch naming
+
+Your branch name should have following structure:
+
+`<type>/<reference-and-title-of-pbi>`
+
+Example: `feat/37896-add-plugin`
+
+Ensure to stick to lowercase letters when creating your branch to avoid potential conflicts on different platforms.
+
+If there is no PBI to refer to, for minor updates perhaps like locations updates, you may skip including a reference to it.
+
+## Commit message convention
+
+```
+<type>(<optional scope>): <subject>
+
+
+<optional body>
+
+```
+
+Similar to the branches a commit should always have a type and subject in lowercase letters.
+
+Example: `feat: add new plugin`
+
+Always write the commits in present time, in this case "add" and not "added".
+
+## Pull request naming convention
+
+A pull request should have following structure:
+
+`<type>: <subject>`
+
+The subject should be a short and concise summary of the PBI.
+
+Example: `feat: add plugin`
+
+## References
+
+[Commit lint rules](https://commitlint.js.org/reference/rules.html)
+
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification)
