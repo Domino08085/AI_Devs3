@@ -3,8 +3,8 @@ import json
 from dotenv import load_dotenv
 import os
 
-load_dotenv()  # loads variables from .env file
-api_key = os.getenv("API_KEY")
+load_dotenv()
+api_key = os.getenv("APIkey")
 
 def invoke_rest_api(uri, method, headers, body=None, content_type=None):
     try:
@@ -28,27 +28,14 @@ headers = {
         "Authorization" : "Bearer token"
     }
 
-APIkey = "Bearer"
-
-Body = {
-    "task": "1234",
-    "apikey": APIkey,
-    "answer": [0,1,2,3,4]
-}
-
 # 0 (zero) code response means success. Every code below 0 is an error.
-#response = invoke_rest_api(RequestURI, "GET", headers, Body, "application/json")
-
-#response = invoke_rest_api(RequestURI, "GET", headers, "application/json")
-
-response = requests.get(GetURI, headers=headers, verify=False) # verify=False to Disable SSL verification !ONLY for tests!
+response = requests.get(GetURI, headers=headers)
 
 # Check the response
 if response.status_code == 200:
     print("API call successful")
     response_text = response.text
     response_table = response_text.splitlines()
-    #response_json = response.json()
     print(response_table)
 else:
     print(f"API call failed with status code {response.status_code}")
@@ -58,19 +45,15 @@ RequestURI = "https://poligon.aidevs.pl/verify"
 
 Body = {
     "task": "POLIGON",
-    "apikey": APIkey,
+    "apikey": api_key,
     "answer": response_table
 }
 
-#Przekazac w odpowiedni sposob APIkey ---> ..........
-
-response = requests.post(RequestURI, headers=headers, json=Body, verify=False) # verify=False to Disable SSL verification !ONLY for tests!
+response = requests.post(RequestURI, headers=headers, json=Body)
 
 if response.status_code == 200:
     print("API call successful")
     response_text = response.text
-    #response_table = response_text.splitlines()
-    #response_json = response.json()
     print(response_text)
 else:
     print(f"API call failed with status code {response.status_code}")
