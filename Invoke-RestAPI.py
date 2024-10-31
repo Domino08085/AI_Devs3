@@ -1,5 +1,10 @@
 import requests
 import json
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # loads variables from .env file
+api_key = os.getenv("API_KEY")
 
 def invoke_rest_api(uri, method, headers, body=None, content_type=None):
     try:
