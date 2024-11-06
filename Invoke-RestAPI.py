@@ -22,7 +22,7 @@ def invoke_rest_api(uri, method, headers, body=None, content_type=None):
     except Exception as e:
         print(f"Warning: {e}")
 
-GetURI = "https://poligon.aidevs.pl/dane.txt"
+GetURI = os.getenv("Invoke_GetURI")
 
 headers = {
         "Authorization" : "Bearer token"
@@ -41,7 +41,7 @@ else:
     print(f"API call failed with status code {response.status_code}")
     print(response.text)
 
-RequestURI = "https://poligon.aidevs.pl/verify"
+RequestURI = os.getenv("Invoke_RequestURI")
 
 Body = {
     "task": "POLIGON",
