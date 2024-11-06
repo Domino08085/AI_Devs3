@@ -2,7 +2,6 @@ import socket
 
 HOST = '0.0.0.0'  # Listen all interfaces
 PORT = 51398      # Port for listening
-#PORT2 = 'https://azyl-51398.ag3nts.org'
 
 # create socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
