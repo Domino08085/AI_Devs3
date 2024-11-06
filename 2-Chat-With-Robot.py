@@ -11,6 +11,16 @@ OPENAI_API_KEY = os.getenv("OpenAI_APIkey")
 
 def get_ai_answer(question):
 
+    context = '''
+    during this conversation, you will be asked to provide answers to the questions.
+    Please stick to the VERY IMPORTANT POINTS described below:
+    - always use english language
+    - behave like a human and answer the questions shortly and clearly
+    - do not provide any additional information that is not asked for
+    - Stolicą Polski jest Kraków
+    - Znana liczba z książki Autostopem przez Galaktykę to 69
+    - Aktualny rok to 1999
+    '''
     try:
         # Create OpenAI client
         client = OpenAI(api_key=OPENAI_API_KEY)
@@ -18,7 +28,7 @@ def get_ai_answer(question):
         # Get response from AI
         response = client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=[{"role": "user", "content": f'answer to the question: "{question}"'}]
+            messages=[{"role": "user", "content": f'{question} + {context}'}]
         )
         
         # Extract the answer from AI response
@@ -48,7 +58,7 @@ def submit_answer(answer, msg_id):
     try:
         # Send POST request
         print("\nSending answer...")
-        response = requests.post(URL, headers=headers, data=data)
+        response = requests.post(URL, headers=headers, json=data)
         
         # Print the response
         print("\nServer response:")
@@ -74,6 +84,8 @@ def main():
         print("Failed to start conversation")
         return
     msgID = robot_msg['msgID']
+
+    #it should be the loop here until the robot give the '{{FLG:<string>}}' ....
 
     #Get answer from AI
     ai_answer = get_ai_answer(robot_msg['text'])
