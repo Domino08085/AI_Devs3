@@ -1,3 +1,6 @@
 var_group.txt
 .env
 processed_data.json
+*.png
+*.mp3
+article.md
