@@ -5,4 +5,5 @@ processed_data.json
 *.mp3
 article.md
 __pycache__/
+**/__pycache__/
 *.pyc
