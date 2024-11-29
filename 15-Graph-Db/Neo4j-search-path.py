@@ -89,7 +89,7 @@ class Neo4jConnection:
         record = result.single()
         return record['path_usernames'] if record else None
 
-def send_results(task, api_key, data, URL: str, ):
+def send_results(task, api_key, data, URL: str):
 
     # Set up the headers
     headers = {
