@@ -2,6 +2,7 @@ var_group.txt
 .env
 processed_data.json
 *.png
+*.PNG
 *.mp3
 article.md
 __pycache__/
