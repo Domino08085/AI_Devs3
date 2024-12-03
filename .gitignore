@@ -8,3 +8,5 @@ article.md
 __pycache__/
 **/__pycache__/
 *.pyc
+**/dane/
+**/lib/
