@@ -9,4 +9,3 @@ __pycache__/
 **/__pycache__/
 *.pyc
 **/dane/
-**/lib/
